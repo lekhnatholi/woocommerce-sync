@@ -1,0 +1,24 @@
+### home page
+GET http://localhost:5000/api/health
+
+### use register
+
+POST http://localhost:5000/api/health
+Content-Type: application/json
+ 
+ {
+     "fullName": "Lekhnath Oli",
+     "email":"lekhnatholi0@gmail.com",
+     "password":"lekhu@123",
+     "address":"",
+     "type":"admin"
+ }
+
+### user login
+ POST http://localhost:5000/api/auth/login
+ Content-Type: application/json
+
+ {
+     "email":"lekhnatholi013@gmail.com",
+     "password":"lekhu@123"
+ }
