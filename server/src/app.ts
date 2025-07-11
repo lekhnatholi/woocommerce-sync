@@ -4,6 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import SyncScheduler from './jobs/SyncScheduler';
+import orderRoutes from './routes/orderRoutes';
+import productRoutes from './routes/productRoutes';
 
 // Load environment variables
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
@@ -25,6 +27,8 @@ app.get('/api/health', (req: Request, res: Response) => {
   res.json({ status: 'ok' });
 });
 
+app.use('/api/orders', orderRoutes);
+app.use('/api/products', productRoutes);
 
 // Error handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
