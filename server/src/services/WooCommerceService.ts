@@ -244,41 +244,7 @@ export class WooCommerceService {
     }
   }
 
-  /**
-   * Get total count of orders
-   */
-  async getOrdersCount(after?: string): Promise<number> {
-    try {
-      const params: any = {
-        per_page: 1,
-        orderby: 'date',
-        order: 'desc'
-      };
-
-      if (after) {
-        params.after = after;
-      }
-
-      const response = await this.client.get('/orders', { params });
-      return parseInt(response.headers['x-wp-total'] || '0', 10);
-    } catch (error) {
-      console.error('Error getting orders count:', error);
-      return 0;
-    }
-  }
-
-  /**
-   * Get total count of products
-   */
-  async getProductsCount(): Promise<number> {
-    try {
-      const response = await this.client.get('/products', { params: { per_page: 1 } });
-      return parseInt(response.headers['x-wp-total'] || '0', 10);
-    } catch (error) {
-      console.error('Error getting products count:', error);
-      return 0;
-    }
-  }
+  
 }
 
 export default WooCommerceService; 
