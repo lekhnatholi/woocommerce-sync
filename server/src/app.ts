@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import SyncScheduler from './jobs/SyncScheduler';
 
 // Load environment variables
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
@@ -37,14 +38,29 @@ if (!mongoUri) {
   throw new Error('MONGODB_URI is not set in environment variables');
 }
 
+// Instantiate the sync scheduler
+const syncScheduler = new SyncScheduler();
+
 mongoose.connect(mongoUri)
   .then(() => {
     console.log('MongoDB connected');
+    // Start the sync scheduler after DB connection
+    syncScheduler.start();
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
     process.exit(1);
   });
+
+// Gracefully stop the scheduler on process exit
+process.on('SIGINT', () => {
+  syncScheduler.stop();
+  process.exit();
+});
+process.on('SIGTERM', () => {
+  syncScheduler.stop();
+  process.exit();
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
