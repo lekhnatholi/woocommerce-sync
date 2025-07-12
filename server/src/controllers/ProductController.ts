@@ -143,6 +143,7 @@ export class ProductController {
 
       // Build advanced query
       const searchQuery: any = {};
+      console.log({searchQuery})
 
       // Text search
       if (query) {
