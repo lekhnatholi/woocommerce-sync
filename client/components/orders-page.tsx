@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Search, Filter, Eye, Calendar, DollarSign, Loader2 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -15,6 +16,7 @@ interface OrdersPageProps {
 }
 
 export default function OrdersPage({ productFilter }: OrdersPageProps) {
+  const router = useRouter()
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("all")
   const [sortBy, setSortBy] = useState("date_desc")
@@ -101,6 +103,10 @@ export default function OrdersPage({ productFilter }: OrdersPageProps) {
     }
   }
 
+  const handleClearProductFilter = () => {
+    router.push("/orders")
+  }
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "completed":
@@ -151,7 +157,7 @@ export default function OrdersPage({ productFilter }: OrdersPageProps) {
         {productFilter && (
           <Button
             variant="outline"
-            onClick={() => window.location.reload()}
+            onClick={handleClearProductFilter}
             className="border-primary text-primary hover:bg-primary hover:text-white"
           >
             Clear Product Filter

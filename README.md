@@ -201,3 +201,7 @@ NODE_ENV=development
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
+
+
+### Application Recording URL
+https://www.loom.com/share/49b0454e64174be99836410b08fb4d69?sid=008d76b1-2560-407e-aebb-7d9405ea3bbd 

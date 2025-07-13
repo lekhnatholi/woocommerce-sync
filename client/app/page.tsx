@@ -1,29 +1,22 @@
 "use client"
 
-import { useState } from "react"
-import Navbar from "@/components/navbar"
-import OrdersPage from "@/components/orders-page"
-import ProductsPage from "@/components/products-page"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 
-export default function Component() {
-  const [activeTab, setActiveTab] = useState("orders")
-  const [productFilter, setProductFilter] = useState<string | null>(null)
+export default function HomePage() {
+  const router = useRouter()
 
-  const handleProductOrdersClick = (productId: string) => {
-    setProductFilter(productId)
-    setActiveTab("orders")
-  }
+  useEffect(() => {
+    // Redirect to products page by default
+    router.push("/products")
+  }, [router])
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main className="container mx-auto px-4 py-8">
-        {activeTab === "orders" ? (
-          <OrdersPage productFilter={productFilter} />
-        ) : (
-          <ProductsPage onProductOrdersClick={handleProductOrdersClick} />
-        )}
-      </main>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+        <p className="text-gray-600">Redirecting to products...</p>
+      </div>
     </div>
   )
 }

@@ -9,11 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { productService, Product, ProductsResponse } from "@/services/api"
 
-interface ProductsPageProps {
-  onProductOrdersClick: (productId: string) => void
-}
-
-export default function ProductsPage({ onProductOrdersClick }: ProductsPageProps) {
+export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [sortBy, setSortBy] = useState("name_asc")
   const [products, setProducts] = useState<Product[]>([])
@@ -205,8 +201,6 @@ export default function ProductsPage({ onProductOrdersClick }: ProductsPageProps
                     )}
                   </div>
                 </div>
-
-                
 
                 {product.categories && product.categories.length > 0 && (
                   <div className="flex flex-wrap gap-1 pt-2">
