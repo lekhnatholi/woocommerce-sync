@@ -1,11 +1,11 @@
-# Matat Assessment Project
+# Woocommerce Sync Project
 
 A full-stack application with a Node.js/Express backend API and a Next.js frontend client.
 
 ## Project Structure
 
 ```
-matat-assessment/
+woocommerce-sync/
 ├── client/          # Next.js frontend application
 ├── server/          # Node.js/Express backend API
 └── README.md        # This file
@@ -51,7 +51,7 @@ The backend is a Node.js/Express application with TypeScript that provides a Woo
    Create a `.env` file in the server directory with the following variables:
    ```env
    PORT=3001
-   MONGODB_URI=mongodb://localhost:27017/matat-assessment
+   MONGODB_URI=mongodb://localhost:27017/woocommerce-sync
    NODE_ENV=development
    ```
 
@@ -193,7 +193,7 @@ The backend provides a WooCommerce API. You can test the endpoints using the `re
 ### Backend (.env)
 ```env
 PORT=3001
-MONGODB_URI=mongodb://localhost:27017/matat-assessment
+MONGODB_URI=mongodb://localhost:27017/woocommerce-sync
 NODE_ENV=development
 ```
 
