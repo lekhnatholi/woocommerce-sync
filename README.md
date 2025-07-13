@@ -8,7 +8,7 @@ A full-stack application with a Node.js/Express backend API and a Next.js fronte
 woocommerce-sync/
 ├── client/          # Next.js frontend application
 ├── server/          # Node.js/Express backend API
-└── README.md        # This file
+└── README.md      
 ```
 
 ## Prerequisites
