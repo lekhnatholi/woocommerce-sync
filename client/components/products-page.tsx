@@ -206,22 +206,7 @@ export default function ProductsPage({ onProductOrdersClick }: ProductsPageProps
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-2">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Package className="h-4 w-4 mr-1" />
-                    ID: {product.wooCommerceId}
-                  </div>
-
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => onProductOrdersClick(product._id)}
-                    className="border-secondary text-secondary hover:bg-secondary hover:text-primary"
-                  >
-                    <ShoppingCart className="h-4 w-4 mr-1" />
-                    {product.total_sales} Orders
-                  </Button>
-                </div>
+                
 
                 {product.categories && product.categories.length > 0 && (
                   <div className="flex flex-wrap gap-1 pt-2">
