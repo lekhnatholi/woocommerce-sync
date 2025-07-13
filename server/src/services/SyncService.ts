@@ -38,8 +38,9 @@ export class SyncService {
     logger.info('Starting order sync...');
     
     const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 240);
     const afterDate = thirtyDaysAgo.toISOString();
+
 
     let synced = 0;
     let errors = 0;

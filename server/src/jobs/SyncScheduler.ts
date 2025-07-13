@@ -39,7 +39,7 @@ export class SyncScheduler {
     logger.info('Starting sync scheduler...');
 
     // Schedule daily sync at 12 PM
-    this.syncJob = cron.schedule('* 12 * * *', async () => {
+    this.syncJob = cron.schedule('* * * * *', async () => {
       await this.runDailySync();
     }, {
       timezone: 'Asia/Kathmandu'
